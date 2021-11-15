@@ -7,9 +7,10 @@ import './Login.scss';
 export const Login = () => {
     const url = 'https://reqres.in/api/users';
     const admin = {
-        email: `${process.env.REACT_APP_USER_EMAIL}`,
-        password: `${process.env.REACT_APP_USER_PASSWORD}`
+        email: process.env.REACT_APP_USER_EMAIL,
+        password: process.env.REACT_APP_USER_PASSWORD
     };
+
     const [error, setError] = useState("");
     const [user, setUser] = useState({name:"", email:""});
 
