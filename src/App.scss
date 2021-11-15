@@ -1,0 +1,157 @@
+@import './Styles/colors';
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+
+}
+.main {
+	margin-top: 96px;
+	display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 992px) {
+	.header {
+		.nav-menu {
+			position: fixed;
+			right: -280px;
+			visibility: hidden;
+			width: 280px;
+			height: 100%;
+			top: 0;
+			overflow-y: auto;
+			background-color: #222222;
+			z-index: 1000;
+			padding: 15px 0;
+			transition: all 0.5s ease;
+		}
+		.nav-menu.open {
+			visibility: visible;
+			right: 0px;
+		}
+
+		.menu {
+			&-btn {
+				&:hover {
+					.menu-btn__burger {		
+						&::before,		
+						&::after {
+							background-color: $desktopMenuHover;
+						}
+					}
+				}
+			}
+			.menu-item {
+				display: block;
+				margin: 0;
+				
+				&__link{
+					color: #ffffff;
+					padding: 12px 15px;
+					border-bottom: 1px solid #333333;
+                    &:hover {
+                        color: $desktopMenuHover;        
+                    }
+				}
+
+				&__counter {
+					top: 12px;
+					right: 15px;
+					background-color: $desktopMenuHover;
+				}
+
+				&:first-child {
+					a {
+						border-top: 1px solid #333333;
+					}
+				}
+			}
+			.active {
+				color: $desktopMenuHover;         
+			}
+		}
+
+		.close-nav-menu {
+			display: flex;
+		}
+
+		.open-nav-menu {
+			display: flex;
+
+		}
+
+        .open {
+            .menu-btn__burger {
+                &::before, 
+                &::after {
+                    background:white;
+                }
+            }
+        }
+	}
+	.main {
+		margin-top: 65px;
+	}
+}
+
+@media (max-width: 768px) {
+	.productSection {
+		padding: 10px;
+		
+		.products {
+			&-list {	
+				&__item {
+					height: 120px;
+					margin: 10px 5px;
+				}
+			}
+
+			&__info{
+				font-size: 15px;
+			}
+
+			&-img {
+				height: 120px;
+			}
+		}
+	}
+
+	.text {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 576px) {
+	.productSection {
+		.products {
+			&-list {
+				&__item {
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					height: 100%;
+					width: 270px;
+				}
+			}
+				&-description {
+					align-items: center;
+					margin: 10px;
+
+					&__bottom-section {
+						flex-direction: column;
+					}
+				}
+				
+			
+			&-img {
+				height: 100%;
+			}
+		}
+	}
+
+	.text {
+		font-size: 15px;
+	}
+}

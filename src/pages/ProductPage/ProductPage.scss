@@ -1,0 +1,16 @@
+@import '../../Styles/colors';
+@import '../../Styles/sizes';
+
+.product-page {
+    max-width: 1000px;
+    margin: 50px 10px;
+    background-color: $mainWhite;
+    border: 1px groove $borderColor;
+    border-radius: $borderRadius;
+
+    &__title {
+        text-transform: uppercase;
+        color: black;
+        margin-left: 30px;
+    }
+}

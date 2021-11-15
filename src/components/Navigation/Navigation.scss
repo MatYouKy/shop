@@ -1,0 +1,46 @@
+@import '../../Styles/colors';
+
+.nav-menu {
+    padding: 0 15px;
+}
+.menu {
+    .menu-item {
+        position: relative;
+        display: inline-block;
+        margin-left: 30px;
+        position: relative;
+
+        &__link {
+            display: block;
+            padding: 12px 0;
+            font-size: 16px;
+            color: $black;
+            text-transform: capitalize;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: $desktopMenuHover;  
+            }
+        }
+
+        &__counter {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+            right: -15px;
+            top: 25px;
+            height: 15px;
+            width: 15px;
+            border: 2px solid $borderColor;
+            border-radius: 50%;
+            background-color: $addButton;
+        }
+    }
+    .active {
+        color: $desktopMenuHover;         
+    }
+}

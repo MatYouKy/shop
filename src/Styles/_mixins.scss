@@ -1,0 +1,17 @@
+@import './colors';
+@import './sizes';
+
+@mixin styleBtn {
+    padding: 5px 15px;
+    background-color: $addButton;
+    border-radius: $borderRadius;
+    border: none;
+    cursor: pointer;
+    transition: background-color .15s ease-in;
+    text-transform: capitalize;
+    
+    &:hover {
+        background-color: $addButtonHover;
+    }
+}
+
