@@ -6,12 +6,32 @@
     background-color: $addButton;
     border-radius: $borderRadius;
     border: none;
-    cursor: pointer;
     transition: background-color .15s ease-in;
     text-transform: capitalize;
+    cursor: pointer;
     
     &:hover {
         background-color: $addButtonHover;
     }
 }
 
+@mixin burgerElement ($val) {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background: black;
+    border-radius: $borderRadius;
+    transition: all 0.2s ease-in-out;
+    transform: translateY($val);
+}
+
+@mixin backgroundImage($url) {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url($url);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}

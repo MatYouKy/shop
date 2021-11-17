@@ -53,13 +53,8 @@ export const LoginForm = ({login, error}) => {
     );
 };
 
-LoginForm.defaultProps = {
-    login: "",
-    error: ""
 
-}
 LoginForm.propTypes = {
-    login: PropTypes.string,
-    error: PropTypes.string
-
+    login: PropTypes.func.isRequired,
+    error: PropTypes.string.isRequired
 }

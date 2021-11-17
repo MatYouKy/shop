@@ -6,17 +6,25 @@ import { Navigation } from '../Navigation/Navigation';
 import './Header.scss'
 
 export const Header = () => {
-    const { toggle, menu } = useContext(GlobalState)
+    const { toggle, handleToggle} = useContext(GlobalState);
+
     return (
     <header className="header">
-        <div className="container">
-            <div className="header-main">
-                <div className="logo">
-                    <Link to="/">Logo</Link>
+        <div className="header__shadow" />
+        <div className='wrapper'> 
+            <div className="container">
+                <div className="header-main">
+                    <div className="logo">
+                        <Link to="/">Shop</Link>
+                    </div>
+                    <BurgerMenu />
+                    { toggle && 
+                    <div className="menu-overlay" 
+                        onClick={() => handleToggle(false)}
+                        onKeyPress={() => handleToggle(false)}
+                        role='none'/>}
+                    <Navigation />            
                 </div>
-                <BurgerMenu />
-                {!menu && toggle && <div className="menu-overlay" />}
-                <Navigation />            
             </div>
         </div>
     </header>

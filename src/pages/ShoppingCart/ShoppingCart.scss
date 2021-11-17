@@ -1,0 +1,54 @@
+@import '../../Styles/colors';
+@import '../../Styles/mixins';
+@import '../../Styles/sizes';
+
+.shoppingCart-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include backgroundImage('../img/background-1.jpg');
+
+  .shoppingCart {
+    &-shadow {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      background-color: #ffffffc3;
+      z-index: 1;
+    }
+
+    &-wrapper {
+      text-align: center;
+      width: 80%;
+      max-height: 500px;
+      z-index: 2;
+      text-transform: capitalize;
+      
+      &__container {
+        margin: 20px;
+        border-radius: 5px;
+        display: block;
+        border: 2px solid &borderColor;
+      }
+
+      &__items {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          height: 40px;
+          background-color: #fff;
+          border-radius: 5px;
+          margin: 3px;
+        &--button {
+          @include styleBtn;
+          margin: 5px;
+        }
+      }
+      ul {
+        list-style: none;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

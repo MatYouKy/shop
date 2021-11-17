@@ -1,46 +1,50 @@
+/* eslint-disable prefer-const */
 import React, { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types'
-import { useGetProducts } from '../actions/useGetProducts';
+import { getWidth } from '../actions/getWidth';
 
 export const GlobalState = createContext();
 
-const getWidth = () => {
-  const width = window.innerWidth;
-  if (width >= 992) {
-    return true;
-  }
-  return false;
-};
-
 export const GlobalStateProvider = ({ children }) => {
-  const products = useGetProducts();
+  const URL = `${process.env.PUBLIC_URL}/products.json`;
+  const [products, setProducts] = useState([])
   const [menu, setMenu] = useState(getWidth());
   const [toggle, setToggle] = useState(false);
-  const [user, setUser] = useState(true);
-  const [order, setOrder] = useState({
-    items: [],
-    owner: {
+  const [logged, setLogged] = useState(false);
+  const [cartItems, setCartItems] = useState([])
+  const [currentUser, setCurrentUser] = useState({
     name: '',
-    email:''
-    },
-    pcs: 0,
-    total: 0
+    email: ''
   });
-      
-  const handleToggle = () => setToggle(!toggle);
-  const addProduct = itemId => {
-    const product = products.filter(index => index.id === itemId)
-      setOrder({
-        ...order,
-        items: [...order.items, product[0]],
-        pcs: order.pcs + 1
-      }
-    );
+
+  const handleToggle = state => setToggle(state);
+  
+  const addProduct = product => {
+    const exist = cartItems.find(x => x.id === product.id);
+    if(exist) {
+      setCartItems(
+        cartItems.map(item => 
+          item.id === product.id ? {...exist, pcs: exist.pcs + 1 } : item
+      ));
+    } else {
+      setCartItems([...cartItems, { ...product, pcs: 1 }]);
+    }
+  }
+  
+  const removeProduct = product => {
+    const exist = cartItems.find(item => item.id === product.id)
+    if(exist.pcs === 1) {
+      setCartItems(cartItems.filter(item => item.id !== product.id))
+    } else {
+      setCartItems(
+        cartItems.map(item => 
+          item.id === product.id ? {...exist, pcs: exist.pcs - 1} : item
+      ));
+    }
   }
 
   useEffect(() => {
     const handleResizeWidth = () => setMenu(getWidth());
-
 
     window.addEventListener('resize', handleResizeWidth);
     return () => window.removeEventListener('rezise', handleResizeWidth);
@@ -52,19 +56,35 @@ export const GlobalStateProvider = ({ children }) => {
     }
   },[menu])
 
-  return <GlobalState.Provider 
-    value={{
-       menu,
-       toggle,
-       user,
-       products,
-       order,
-       handleToggle,
-       setUser,
-       addProduct
-      }}
-    >{children}
-  </GlobalState.Provider>;
+
+  useEffect(() => {
+    const getProducts = async url => {
+      await fetch(url)
+        .then(res => res.json())
+        .then(data => setProducts(data))
+    }
+    getProducts(URL)
+  },[])
+
+  return (
+    <GlobalState.Provider 
+      value={{
+        menu,
+        toggle,
+        logged,
+        products,
+        URL,
+        cartItems,
+        currentUser,
+        handleToggle,
+        setLogged,
+        addProduct,
+        removeProduct,
+        setCurrentUser,
+        }}
+      >{children}
+    </GlobalState.Provider>
+  );
 };
 
 GlobalStateProvider.propTypes = {

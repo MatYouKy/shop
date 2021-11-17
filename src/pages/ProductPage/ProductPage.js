@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
+import { ProductFocus } from '../../components/ProductFocus/ProductFocus';
 import { GlobalState } from '../../context/global.context';
 import { getData } from '../../actions/api/getData';
-import { Product } from '../../components/Product/Product';
 import './ProductPage.scss';
 
 export const ProductPage = () => {
-    const URL = '/products.json';
-    const { addProduct } = useContext(GlobalState)
+    const { addProduct, URL } = useContext(GlobalState)
+
     const { id } = useParams();
     const [product, setProduct] = useState({
         id:  null, 
@@ -20,24 +20,32 @@ export const ProductPage = () => {
 
     useEffect(() => {
         const fetchProduct = async (url) => {
-            const data = await getData(url);
-            const index = data.findIndex(item => item.id === parseInt(id, 10))
+            let pageId = parseInt(id, 10)
+            const data = await getData(url)
+            if((data.length <= parseInt(id, 10)) || id === '0'){
+                pageId = 1;
+            }
+            const index = data.findIndex(item => item.id === pageId)
             setProduct(data[index])
         }
         fetchProduct(URL);
-    },[id])
+    },[])
 
     return(
         <article className="product-page">
-            <h1 className="product-page__title">{product.name}</h1>
-            <Product 
-                id={product.id} 
-                name={product.name} 
-                description={product.description} 
-                img={product.img} 
-                price={product.price}
-                click={addProduct}
-            />
+            <div className='product-page__shadow' />
+            <div className="container">
+                <h1 className="container__title">{product.name}</h1>
+                <ProductFocus 
+                    id={product.id} 
+                    name={product.name} 
+                    description={product.description} 
+                    img={product.img} 
+                    price={product.price}
+                    addProduct={addProduct}
+                    product={product}
+                />
+            </div>
         </article>
     );
 }

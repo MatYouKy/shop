@@ -7,9 +7,9 @@ import './App.scss';
 
 export const App = () => (
   <Router>    
-      <main className="main">
-        <Header />
-        <Routes>{RouteComponents}</Routes>
-      </main>
+    <Header />
+    <Routes>
+      {RouteComponents}
+    </Routes>
   </Router>  
 );

@@ -6,10 +6,7 @@ import { getData } from '../../actions/api/getData';
 import './ProductsList.scss';
 
 export const ProductsList = () => {
-        const URL = 'products.json';
-        const {
-            addProduct
-        } = useContext(GlobalState);
+        const { addProduct, URL } = useContext(GlobalState);
         const initialValue = 7;
         const newValue = 4;
         const [productsLength, setProductsLength] = useState([]);
@@ -39,25 +36,22 @@ export const ProductsList = () => {
             const productDes = product.description.slice(0, 100);
 
             return ( 
-                <li key={product.id}
-                className='products-list__item'>
-                <Link to={`/products/${product.id}`}>< img src={image}
-                alt = {product.name}
-                className='products-img'/></Link>
+                <li key={product.id} className='products-list__item'>
+                    <Link to={`/products/${product.id}`}>< img src={image} alt = {product.name} className='products-list__item-img'/></Link>
                     <div className='products-description'>
                     <Link className='products-description__title text' to={`/products/${product.id}`}>{product.name}</Link> 
                     <p className='products-description__describe text'> {`${productDes}....`}</p> 
                         <div className='products-description__bottom-section'>
-                        <h4 className='text'> {product.price}zł</h4> 
-                        <button
-                            className='products-description__bottom-section--button'
-                            id={product.id}
-                            type='button'
-                            onClick={addProduct}
-                        >
-                        Buy Now!
-                        </button>
-
+                            <h4 className='text'> {product.price}zł</h4> 
+                            <button
+                                className='products-description__bottom-section--button'
+                                id={product.id}
+                                type='button'
+                                onClick={() => addProduct(product)}
+                                onKeyPress={() => addProduct(product)}
+                            >
+                            add to basket
+                            </button>
                         </div> 
                     </div> 
                 </li>
@@ -69,22 +63,25 @@ export const ProductsList = () => {
         }, [])
 
         return ( 
-        <section className = 'productSection'>
-            <InfiniteScroll 
-                className='products-list'
-                dataLength={index}
-                next={nextFunction}
-                hasMore={hasMore}
-                loader = {<div className='products-list__info'>
-                    <p className='products-list__info'>Loading...</p> 
-                </div>
-                }
-                endMessage={
-                    <div className='products-list__end'>
-                        <p className='products-list__info'>That &apos s all</p> 
-                    </div>}>
-                {productsRender} 
-            </InfiniteScroll>
-        </section>
+        <article className='products-section'>
+            <div className='products__container'>
+            <div className='products__shadow' />
+                <InfiniteScroll 
+                    className='products-list'
+                    dataLength={index}
+                    next={nextFunction}
+                    hasMore={hasMore}
+                    loader = {
+                    <div className='products-list__info'>
+                        <p className='products-list__info'>Loading...</p> 
+                    </div>}
+                    endMessage={
+                        <div className='products-list__end'>
+                            <p className='products-list__info'>That&apos;s all</p> 
+                        </div>}>
+                    {productsRender} 
+                </InfiniteScroll>
+            </div>
+        </article>
     );
 };

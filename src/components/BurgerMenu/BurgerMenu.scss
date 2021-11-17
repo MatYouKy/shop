@@ -1,65 +1,52 @@
 @import '../../Styles/colors';
 @import '../../Styles/sizes';
+@import '../../Styles/mixins';
 
 .menu-btn {
-	width: 50px;
-	height: 50px;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: all 0.2s ease-in-out;
-	cursor: pointer;
-	&:hover {
-		.menu-btn__burger {		
-			background-color: $desktopMenuHover;
-			&::before,		
-			&::after {
-				background-color: $desktopMenuHover;
-			}
-		}
-	}
+  width: 50px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  z-index: 2;
+
+  &:hover {
+    .menu-btn__burger {
+      background-color: $desktopMenuHover;
+      &::before,
+      &::after {
+        background-color: $desktopMenuHover;
+      }
+    }
+  }
 }
+
 .menu-btn__burger {
-	width: 30px;
-	height: 3px;
-	background: black;
-	border-radius: $borderRadius;
-	transition: all 0.2s ease-in-out;
+  width: 30px;
+  height: 3px;
+  background: black;
+  border-radius: $borderRadius;
+  transition: all 0.2s ease-in-out;
 
+  &::before {
+    @include burgerElement(-10px);
+  }
 
-
-	&::before {
-		content: "";
-		position: absolute;
-		width: 30px;
-		height: 3px;
-		background:black;
-		border-radius: $borderRadius;
-		transition: all 0.2s ease-in-out;
-		transform: translateY(-10px);
-	}
-
-	&::after {
-		content: "";
-		position: absolute;
-		width: 30px;
-		height: 3px;
-		background: black;
-		border-radius: $borderRadius;
-		transition: all 0.2s ease-in-out;
-		transform: translateY(10px);
-	}
+  &::after {
+    @include burgerElement(10px);
+  }
 }
 .open {
-	.menu-btn__burger {
-		transform: translateX(-50px);
-		background: transparent;
-		&::before {
-			transform: rotate(45deg) translate(35px, -35px);
-		}
-		&::after {
-			transform: rotate(-45deg) translate(35px, 35px);
-		}
-	}
+  .menu-btn__burger {
+    transform: translateX(-50px);
+    &::before {
+      transform: rotate(45deg) translate(35px, -35px);
+    }
+    &::after {
+      transform: rotate(-45deg) translate(35px, 35px);
+    }
+  }
 }

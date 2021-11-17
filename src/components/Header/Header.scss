@@ -2,62 +2,53 @@
 @import '../../Styles/colors';
 
 .header {
-	position: fixed;
-	width: 100%;
-	left: 0;
-	top: 0;
-	z-index: 99;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  background-color: $backgroundColor;
+  overflow: hidden;
+  width: 100%;
+  
+  .wrapper {
+    background-color: $white;
+    width: 100%;
+  }
+  .container {
+    margin: 0 auto;
+    max-width: 1500px;
+    border-bottom: 1px solid $desktopMenuHover;
 
-	.logo {
-		padding: 0 15px;
-		a {
-			font-size: 30px;
-			text-transform: uppercase;
-            text-decoration: none;
-			color: $black;
-			font-weight: 600;
-		}
-	}
-	
-	.open-nav-menu {
-		height: 34px;
-		width: 40px;
-		margin-right: 15px;
-		display: none;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
+    .logo {
+      padding: 0 15px;
+      z-index: 1;
 
-	}
-	.close-nav-menu {
-		height: 40px;
-		width: 40px;
-		background-color: #ffffff;
-		margin: 0 0 15px 15px;
-		cursor: pointer;
-		display: none;
-		align-items: center;
-		justify-content: center;
-	}
-	.menu-overlay {
-		position: fixed;
-		z-index: 999;
-		background-color: $backgroundShadow;
-		left: 0;
-		top: 0;
-		height: 100%;
-		width: 100%;
-		transition: all 0.3s ease;
-	}
+      a {
+        font-size: 30px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $desktopMenuHover;
+        font-weight: 600;
+      }
+    }
+
+    .menu-overlay {
+      position: fixed;
+      z-index: 0;
+      background-color: $backgroundShadow;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+  }
 }
 
 .header-main {
-	background-color: $mainWhite;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px 0;
-	border-bottom: 1px groove $borderColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
 }
-
-

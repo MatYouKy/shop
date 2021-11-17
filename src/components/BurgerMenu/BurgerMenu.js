@@ -6,16 +6,16 @@ export const BurgerMenu = () => {
     const { toggle, menu, handleToggle } = useContext(GlobalState);
     return (
         <>
-        {!menu && (
+        {!menu && 
             <div 
                 className={`menu-btn ${toggle? 'open': ''}`} 
-                onClick={handleToggle}
-                onKeyPress={handleToggle}
+                onClick={() => handleToggle(!toggle)}
+                onKeyPress={() => handleToggle(!toggle)}
                 role='button'
                 tabIndex='0'
                 >
                 <div className='menu-btn__burger'/>
-            </div>)}
+            </div>}
         </>
     );
 }
