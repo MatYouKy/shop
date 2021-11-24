@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { GlobalState } from '../../context/global.context';
 import { getData } from '../../actions/api/getData';
 import './ProductsList.scss';
+import { Shadow } from '../../components/Shadow/Shadow';
 
 export const ProductsList = () => {
-        const { addProduct, URL } = useContext(GlobalState);
+        const { addOneProduct, URL } = useContext(GlobalState);
         const initialValue = 7;
         const newValue = 4;
         const [productsLength, setProductsLength] = useState([]);
@@ -15,7 +16,7 @@ export const ProductsList = () => {
         const [index, setIndex] = useState(initialValue)
 
         const fetchProducts = async (url, value) => {
-            const data = await getData(url)
+            const data = await getData(url);
             setProductsLength(data.length)
             setProducts(data.slice(0, value));
         }
@@ -31,7 +32,7 @@ export const ProductsList = () => {
             }, 1000)
         }
 
-        const productsRender = products.map(product => {
+        const productsRender =  products.map(product => {
             const image = `${process.env.PUBLIC_URL  }../../img/${product.img}`
             const productDes = product.description.slice(0, 100);
 
@@ -47,8 +48,8 @@ export const ProductsList = () => {
                                 className='products-description__bottom-section--button'
                                 id={product.id}
                                 type='button'
-                                onClick={() => addProduct(product)}
-                                onKeyPress={() => addProduct(product)}
+                                onClick={() => addOneProduct(product)}
+                                onKeyPress={() => addOneProduct(product)}
                             >
                             add to basket
                             </button>
@@ -65,7 +66,7 @@ export const ProductsList = () => {
         return ( 
         <article className='products-section'>
             <div className='products__container'>
-            <div className='products__shadow' />
+            <Shadow />
                 <InfiniteScroll 
                     className='products-list'
                     dataLength={index}

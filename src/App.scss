@@ -14,6 +14,9 @@ body {
 }
 
 @media (max-width: 991px) {
+  .header-main {
+    padding: 5px;
+  }
   .header {
     .nav-menu {
       position: fixed;
@@ -89,19 +92,15 @@ body {
     .products {
       &-list {
         margin: 10px 30px;
-
-        &__item {
-          height: 100px;
-        }
       }
 
       &__info {
         font-size: 15px;
       }
 
-      &-img {
-        height: 120px;
-      }
+      // &-img {
+      //   height: 120px;
+      // }
     }
   }
 }
@@ -120,9 +119,9 @@ body {
         font-size: 15px;
       }
 
-      &-img {
-        height: 120px;
-      }
+      // &-img {
+      //   height: 120px;
+      // }
     }
   }
 
@@ -171,6 +170,9 @@ body {
 }
 
 @media (max-width: 576px) {
+  .header-main {
+    padding: 0;
+  }
   .products-section {
     .products {
       &-list {
@@ -179,7 +181,6 @@ body {
           justify-content: center;
           align-items: center;
           height: 100%;
-          width: 270px;
         }
       }
       &-description {
@@ -220,10 +221,6 @@ body {
     .focus {
       &-main {
         
-        &__img {
-          max-width: 250px;
-        }
-        
         &__interaction {
           line-height: 30px;
           height: 30px;
@@ -250,4 +247,53 @@ body {
       }
     }
   }
+
+  .header .nav-menu {
+      right: -200px;
+      width: 200px;
+  }
+
+  .shoppingCart {
+    &-wrapper {
+      text-align: center;
+      width: 80%;
+      text-transform: capitalize;
+      z-index: 1;
+      
+      &__container {
+        margin: 20px;
+        border-radius: 5px;
+        display: block;
+        border: 2px solid &borderColor;
+      }
+
+      &__items {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 5px;
+        margin: 3px;
+
+        &--img {
+          height: 100%;
+        }
+
+        &--button {
+          margin: 5px;
+        }
+      }
+      ul {
+        list-style: none;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .login-section .login-form {
+        width: 300px;
+    }
+
 }

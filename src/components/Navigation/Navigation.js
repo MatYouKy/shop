@@ -8,7 +8,8 @@ export const Navigation = () => {
        toggle, 
        handleToggle, 
        cartItems, 
-       logged, 
+       logged,
+       currentUser,
        setLogged, 
        setCurrentUser,
    } = useContext(GlobalState)
@@ -36,8 +37,8 @@ export const Navigation = () => {
                ? <Link className="menu-item__link" to="/" onClick={() => {
                   setLogged(false)
                   setCurrentUser({name:"", email:""});
-               }}>Logout</Link> 
-               : <NavLink className="menu-item__link" to="/login">Login</NavLink>
+               }}>Logout { currentUser.name }</Link> 
+               : <NavLink className="menu-item__link" to="/login/signin">Login</NavLink>
             }
    
          </li>

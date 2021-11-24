@@ -2,53 +2,99 @@
 @import '../../Styles/mixins';
 @import '../../Styles/sizes';
 
-.shoppingCart-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.shopping-cart {
   @include backgroundImage('../img/background-1.jpg');
-
-  .shoppingCart {
-    &-shadow {
-      position: fixed;
-      height: 100%;
-      width: 100%;
-      background-color: #ffffffc3;
-      z-index: 1;
-    }
-
-    &-wrapper {
-      text-align: center;
-      width: 80%;
-      max-height: 500px;
-      z-index: 2;
+  color:black;
+  
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding-top: 60px;
+    text-align: center;
+    
+    .title {
+      margin: 20px 0;
       text-transform: capitalize;
+    }
+    .list-wrapper {
+      position: relative;
+      background-color: $backgroundColor;
+      display: block;
+      max-height: 600px;
+      width: 500px;
+      border-radius: 5px;
+      border: 1px solid $borderColor;
+      overflow: hidden;
       
-      &__container {
-        margin: 20px;
-        border-radius: 5px;
-        display: block;
-        border: 2px solid &borderColor;
-      }
+      .shopping-list {
+        min-height: 200px;
+        max-height: 400px;
+        overflow: auto;
 
-      &__items {
+        .list {
           display: flex;
+          justify-content: space-between;
           align-items: center;
-          justify-content: space-around;
-          height: 40px;
+          height: 50px;
           background-color: #fff;
-          border-radius: 5px;
-          margin: 3px;
-        &--button {
-          @include styleBtn;
           margin: 5px;
+          border-radius: 5px;
+          border: 2px solid $borderColor;
+
+          .photo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__img {
+              height: 50px;
+            }
+
+            &__caption {
+              font-weight: bold;
+            }
+          }
+
+          .quantity {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            &__button {
+              @include styleBtn;
+              margin-right: 10px;
+            }
+
+            &__value {
+              margin-right: 10px;
+            }
+          }
         }
       }
-      ul {
-        list-style: none;
-        margin-bottom: 20px;
+      .summary {
+        border-top: 1px solid $borderColor;
+        background-color: #fff;
+        padding: 20px;
+        
+        &__value {
+          text-align: center;
+          margin: auto;
+          width: 60%;
+          border-bottom: 2px groove tomato;
+        }
+    
+        &__button {
+          margin-top: 20px;
+          @include styleBtn;
+          
+        }
       }
     }
   }
 }
+
+

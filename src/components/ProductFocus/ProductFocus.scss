@@ -17,14 +17,14 @@
       justify-content: flex-start;
       align-items: center;
       margin-bottom: 20px;
-
+      
       &__img {
         max-width: 500px;
         margin-right: 10px;
         border-radius: $borderRadius;
         border: 1px solid $borderColor;
       }
-
+      
       &__interaction {
         display: flex;
         flex-direction: column;

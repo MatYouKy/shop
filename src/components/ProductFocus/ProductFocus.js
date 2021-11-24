@@ -9,7 +9,7 @@ export const ProductFocus = ({
     img, 
     description, 
     price,
-    addProduct,
+    addOneProduct,
     product
     }) => (
         <section className='product-focus'>
@@ -20,7 +20,7 @@ export const ProductFocus = ({
                     <button
                         className="focus-main__button"
                         id={id}
-                        onClick={() => addProduct(product)}
+                        onClick={() => addOneProduct(product)}
                         type="button"
                     >add to basket</button>
                 </div>

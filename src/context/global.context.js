@@ -19,7 +19,7 @@ export const GlobalStateProvider = ({ children }) => {
 
   const handleToggle = state => setToggle(state);
   
-  const addProduct = product => {
+  const addOneProduct = product => {
     const exist = cartItems.find(x => x.id === product.id);
     if(exist) {
       setCartItems(
@@ -31,7 +31,7 @@ export const GlobalStateProvider = ({ children }) => {
     }
   }
   
-  const removeProduct = product => {
+  const removeOneProduct = product => {
     const exist = cartItems.find(item => item.id === product.id)
     if(exist.pcs === 1) {
       setCartItems(cartItems.filter(item => item.id !== product.id))
@@ -78,8 +78,8 @@ export const GlobalStateProvider = ({ children }) => {
         currentUser,
         handleToggle,
         setLogged,
-        addProduct,
-        removeProduct,
+        addOneProduct,
+        removeOneProduct,
         setCurrentUser,
         }}
       >{children}

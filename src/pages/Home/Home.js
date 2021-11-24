@@ -1,12 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
+import { Shadow } from '../../components/Shadow/Shadow';
 import './Home.scss';
 
 export const Home = () => {
     const navigate = useNavigate();
     return(
         <article id="home-section" className="home-section">
-            <div className="home-shadow"/>
+            <Shadow />
             <div className="blur"/>
             <div className="home-text">
                 <h1 className="home-text__header">welcome to the world!</h1>

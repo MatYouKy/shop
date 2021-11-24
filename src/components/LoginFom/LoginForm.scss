@@ -9,7 +9,13 @@
     border: 1px solid $borderColor;
     background-color: $mainWhite;
     padding: 30px;
+    text-transform: capitalize;
     z-index: 3;
+
+    p {
+        margin: 20px 0;
+        font-size: 12px;
+    }
 
     &__header-text {
         color: $desktopMenuHover;
@@ -17,12 +23,11 @@
     }
 
     &__group {
-        position: relative;
         display: flex;
         flex-direction: column;
         color: #666;
-        width: 280px;
-        margin: 15px;
+        width: 100%;
+        margin: 10px 15px;
 
         &--label {
             display: block;
@@ -52,8 +57,27 @@
         }
     }
 
-    &__button {
-        @include styleBtn;
-        margin-top: 20px;
+    &__buttons {
+
+        &--button{
+            @include styleBtn;
+            margin-top: 20px;
+        }
+
+        &--link {
+            text-decoration: none;
+            margin-left: 5px;
+            font-weight: bold;
+            font-size: 15px;
+            color: $addButton;
+            transition: color .2s ease-in;
+
+            &:hover {
+                color: $addButtonHover;
+            }
+        }
     }
+}
+.error {
+    color: tomato;
 }

@@ -4,9 +4,10 @@ import { ProductFocus } from '../../components/ProductFocus/ProductFocus';
 import { GlobalState } from '../../context/global.context';
 import { getData } from '../../actions/api/getData';
 import './ProductPage.scss';
+import { Shadow } from '../../components/Shadow/Shadow';
 
 export const ProductPage = () => {
-    const { addProduct, URL } = useContext(GlobalState)
+    const { addOneProduct, URL } = useContext(GlobalState)
 
     const { id } = useParams();
     const [product, setProduct] = useState({
@@ -33,7 +34,7 @@ export const ProductPage = () => {
 
     return(
         <article className="product-page">
-            <div className='product-page__shadow' />
+            <Shadow />
             <div className="container">
                 <h1 className="container__title">{product.name}</h1>
                 <ProductFocus 
@@ -42,7 +43,7 @@ export const ProductPage = () => {
                     description={product.description} 
                     img={product.img} 
                     price={product.price}
-                    addProduct={addProduct}
+                    addOneProduct={addOneProduct}
                     product={product}
                 />
             </div>
