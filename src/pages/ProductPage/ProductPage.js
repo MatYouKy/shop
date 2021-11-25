@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductFocus } from '../../components/ProductFocus/ProductFocus';
-import { GlobalState } from '../../context/global.context';
+import { GlobalState } from '../../context/Global.context';
 import { getData } from '../../actions/api/getData';
 import './ProductPage.scss';
 import { Shadow } from '../../components/Shadow/Shadow';

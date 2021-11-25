@@ -10,12 +10,7 @@ export const GlobalStateProvider = ({ children }) => {
   const [products, setProducts] = useState([])
   const [menu, setMenu] = useState(getWidth());
   const [toggle, setToggle] = useState(false);
-  const [logged, setLogged] = useState(false);
   const [cartItems, setCartItems] = useState([])
-  const [currentUser, setCurrentUser] = useState({
-    name: '',
-    email: ''
-  });
 
   const handleToggle = state => setToggle(state);
   
@@ -23,9 +18,7 @@ export const GlobalStateProvider = ({ children }) => {
     const exist = cartItems.find(x => x.id === product.id);
     if(exist) {
       setCartItems(
-        cartItems.map(item => 
-          item.id === product.id ? {...exist, pcs: exist.pcs + 1 } : item
-      ));
+        cartItems.map(item => item.id === product.id ? {...exist, pcs: exist.pcs + 1 } : item));
     } else {
       setCartItems([...cartItems, { ...product, pcs: 1 }]);
     }
@@ -36,10 +29,7 @@ export const GlobalStateProvider = ({ children }) => {
     if(exist.pcs === 1) {
       setCartItems(cartItems.filter(item => item.id !== product.id))
     } else {
-      setCartItems(
-        cartItems.map(item => 
-          item.id === product.id ? {...exist, pcs: exist.pcs - 1} : item
-      ));
+      setCartItems(cartItems.map(item => item.id === product.id ? {...exist, pcs: exist.pcs - 1} : item));
     }
   }
 
@@ -71,17 +61,13 @@ export const GlobalStateProvider = ({ children }) => {
       value={{
         menu,
         toggle,
-        logged,
         products,
         URL,
         cartItems,
-        currentUser,
         handleToggle,
-        setLogged,
         addOneProduct,
         removeOneProduct,
-        setCurrentUser,
-        }}
+      }}
       >{children}
     </GlobalState.Provider>
   );

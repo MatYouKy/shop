@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link } from 'react-router-dom';
-import { GlobalState } from '../../context/global.context';
+import { GlobalState } from '../../context/Global.context';
 import { getData } from '../../actions/api/getData';
 import './ProductsList.scss';
 import { Shadow } from '../../components/Shadow/Shadow';

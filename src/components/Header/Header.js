@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { GlobalState } from '../../context/global.context';
+import { GlobalState } from '../../context/Global.context';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { Navigation } from '../Navigation/Navigation';
 import './Header.scss'

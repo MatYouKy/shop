@@ -1,18 +1,12 @@
 import { useContext } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { GlobalState } from '../../context/global.context';
+import { GlobalState } from '../../context/Global.context';
+import { AuthContext } from '../../context/Auth.context';
 import './Navigation.scss'
 
 export const Navigation = () => {
-    const { 
-       toggle, 
-       handleToggle, 
-       cartItems, 
-       logged,
-       currentUser,
-       setLogged, 
-       setCurrentUser,
-   } = useContext(GlobalState)
+   const { toggle, handleToggle, cartItems } = useContext(GlobalState)
+   const { isLogged, setIsLogged, currentUser, setCurrentUser } = useContext(AuthContext)
 
     return(
     <nav 
@@ -33,11 +27,18 @@ export const Navigation = () => {
             {(!!cartItems.length) && <span className="menu-item__counter">{cartItems.length}</span>}
          </li>
          <li className="menu-item">
-            {logged 
-               ? <Link className="menu-item__link" to="/" onClick={() => {
-                  setLogged(false)
-                  setCurrentUser({name:"", email:""});
-               }}>Logout { currentUser.name }</Link> 
+            {(isLogged) 
+               ? <Link 
+                     className="menu-item__link" 
+                     to="/" 
+                     onClick={() => {
+                        setIsLogged(false)
+                        setCurrentUser({name:"", email:""});
+                        }
+                     }
+                     >Logout { currentUser.name }
+                  </Link> 
+
                : <NavLink className="menu-item__link" to="/login/signin">Login</NavLink>
             }
    

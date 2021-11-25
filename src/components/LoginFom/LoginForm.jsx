@@ -1,30 +1,30 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { GlobalState } from '../../context/global.context';
-import { singIn } from '../../actions/singIn';
+import { AuthContext } from '../../context/Auth.context';
+import { signIn } from '../../actions/signIn';
 import './LoginForm.scss';
 
 export const LoginForm = () => {
     const [details, setDetails] = useState({name:'', email:'', password:''});
     const [error, setError] = useState("");
-    const { setLogged, setCurrentUser } = useContext(GlobalState);
+    const { setIsLogged, setCurrentUser } = useContext(AuthContext);
     const navigate = useNavigate();
     
     const login = details => {
-        singIn({
+        signIn({
             name: details.name,
             email: details.email,
             password: details.password
         })
         .then(data => {
             if(data.isValid) {
-                setLogged(true)
+                setIsLogged(true)
                 setCurrentUser({
                     name: data.user.name,
                     email: data.user.email
                 });
-                setLogged(true);
+                setIsLogged(true);
                 setTimeout(() => {
                     navigate('/')
                 }, 1000);
@@ -33,9 +33,9 @@ export const LoginForm = () => {
                     name: '',
                     email: ''
                 });
-                setError("details do not Match");
-                setLogged(false);
                 setDetails({name:'', email:'', password:''});
+                setError("details do not Match");
+                setIsLogged(false);
             };
         });
     };

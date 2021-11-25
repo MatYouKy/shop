@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { GlobalState } from '../../context/global.context';
+import { GlobalState } from '../../context/Global.context';
 import { Shadow } from '../../components/Shadow/Shadow';
 import './ShoppingCart.scss';
 
@@ -8,6 +8,7 @@ export const ShoppingCart = () => {
     const price = cartItems.reduce((a, c) => a + c.price * c.pcs, 0);
 
     const handleOrder = () => {
+        // eslint-disable-next-line no-console
         console.log('I order');
     }
     return (

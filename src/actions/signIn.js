@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const singIn = valid => {
+export const signIn = valid => {
     const admin = {
         name: 'admin',
         email: process.env.REACT_APP_USER_EMAIL,
@@ -46,7 +46,7 @@ export const singIn = valid => {
     .catch(err => console.log('Error singIn', err))
 }
 
-singIn.default = {
+signIn.default = {
     valid: {
         name: '',
         email: '',
@@ -54,7 +54,7 @@ singIn.default = {
     }
 }
 
-singIn.propTypes = {
+signIn.propTypes = {
     valid: PropTypes.shape({
         name: PropTypes.string,
         email: PropTypes.string,

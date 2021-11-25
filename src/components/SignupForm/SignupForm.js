@@ -6,10 +6,9 @@ import '../LoginFom/LoginForm.scss';
 export const SignupForm = () => {
     const [details, setDetails] = useState({name:'', email:'', password:''})
     const [error, setError] = useState('')
-    console.log(error)
+    
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(details)
         setError("details do not Match");        
     }
     

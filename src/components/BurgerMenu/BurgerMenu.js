@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { GlobalState } from '../../context/global.context';
+import { GlobalState } from '../../context/Global.context';
 import './BurgerMenu.scss';
 
 export const BurgerMenu = () => {
