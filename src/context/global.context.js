@@ -67,6 +67,7 @@ export const GlobalStateProvider = ({ children }) => {
         handleToggle,
         addOneProduct,
         removeOneProduct,
+        setCartItems
       }}
       >{children}
     </GlobalState.Provider>

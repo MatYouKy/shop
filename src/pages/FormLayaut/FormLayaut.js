@@ -11,9 +11,7 @@ export const FormLayaut = () => {
     const { currentUser } = useContext(AuthContext);
 
     const renderAction = () => {     
-        if (action === 'signup') {
-            return  <SignupForm />
-        } 
+        if (action === 'signup') return <SignupForm />
         return <LoginForm />
     }
 

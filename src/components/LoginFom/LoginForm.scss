@@ -5,14 +5,16 @@
 .form-inner {
     position: relative;
     display: block;
+    top: 80px;
+    width:350px;
     border-radius: $borderRadius;
     border: 1px solid $borderColor;
     background-color: $mainWhite;
     padding: 30px;
+    margin: 30px auto;
     text-transform: capitalize;
-    z-index: 3;
 
-    p {
+    .form-info {
         margin: 20px 0;
         font-size: 12px;
     }
@@ -78,6 +80,14 @@
         }
     }
 }
+
+.input-error {
+    height: 12px;
+    font-size: 12px;
+    padding: 5px;
+    color: tomato;
+}
+
 .error {
     color: tomato;
 }

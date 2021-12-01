@@ -1,55 +1,33 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/Auth.context';
-import { signIn } from '../../actions/signIn';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSignIn } from '../../actions/useSignIn';
 import './LoginForm.scss';
 
 export const LoginForm = () => {
     const [details, setDetails] = useState({name:'', email:'', password:''});
+    const [checkUser, setCheckUser] = useState({name:'', email:'', password:''})
     const [error, setError] = useState("");
-    const { setIsLogged, setCurrentUser } = useContext(AuthContext);
-    const navigate = useNavigate();
+
+    useSignIn(checkUser);
     
-    const login = details => {
-        signIn({
-            name: details.name,
-            email: details.email,
-            password: details.password
-        })
-        .then(data => {
-            if(data.isValid) {
-                setIsLogged(true)
-                setCurrentUser({
-                    name: data.user.name,
-                    email: data.user.email
-                });
-                setIsLogged(true);
-                setTimeout(() => {
-                    navigate('/')
-                }, 1000);
-            }else {
-                setCurrentUser({
-                    name: '',
-                    email: ''
-                });
-                setDetails({name:'', email:'', password:''});
-                setError("details do not Match");
-                setIsLogged(false);
-            };
-        });
+    const checkLogin = details => {
+        setCheckUser(details)
+        setDetails({name:'', email:'', password:''});
+        setError("details do not Match");
     };
-    const handleSubmit = e => {
-        e.preventDefault();
-        login(details)
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        checkLogin(details)
     }
     
     return (
         <form 
-        className='form-inner' 
-        onSubmit={handleSubmit}>
+            className='form-inner' 
+            onSubmit={handleSubmit}>
             <h2 className='form-inner__header-text'>Login</h2>
-            {(error !== "") ? (<div className="error">{error}</div>) : ""}
+            <p className="error">{error}</p>
             <div className="form-inner__group">
                 <label 
                     htmlFor="userEmail" 
@@ -82,7 +60,7 @@ export const LoginForm = () => {
                 />
             </div>
             <button type="submit" className="form-inner__buttons--button">Login</button>
-            <p>Don&apos;t have an account yet? 
+            <p className='form-info'>Don&apos;t have an account yet? 
                 <Link to="/login/signup" className="form-inner__buttons--link">Sing up!</Link>
             </p>
         </form>

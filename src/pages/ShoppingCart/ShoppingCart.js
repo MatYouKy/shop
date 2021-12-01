@@ -1,9 +1,11 @@
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { GlobalState } from '../../context/Global.context';
 import { Shadow } from '../../components/Shadow/Shadow';
 import './ShoppingCart.scss';
 
 export const ShoppingCart = () => {
+    const navigate = useNavigate()
     const { cartItems, addOneProduct, removeOneProduct } = useContext(GlobalState) 
     const price = cartItems.reduce((a, c) => a + c.price * c.pcs, 0);
 
@@ -54,7 +56,12 @@ export const ShoppingCart = () => {
                         <button 
                             type='button' 
                             className='summary__button' 
-                            onClick={() => handleOrder()}>buy it
+                            onClick={() => {
+                                handleOrder();
+                                navigate('/shopping-cart/order', {state: {cartItems, price}})
+                                }
+                            }
+                            >buy it
                         </button>
                     </div>
                 </div>}
