@@ -2,12 +2,13 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductFocus } from '../../components/ProductFocus/ProductFocus';
 import { GlobalState } from '../../context/Global.context';
-import { getData } from '../../actions/api/getData';
+import { useGetProducts } from '../../actions/useGetProducts';
 import './ProductPage.scss';
 import { Shadow } from '../../components/Shadow/Shadow';
 
 export const ProductPage = () => {
-    const { addOneProduct, URL } = useContext(GlobalState)
+    const { products } = useGetProducts()
+    const { addOneProduct } = useContext(GlobalState)
 
     const { id } = useParams();
     const [product, setProduct] = useState({
@@ -20,17 +21,18 @@ export const ProductPage = () => {
     });
 
     useEffect(() => {
-        const fetchProduct = async (url) => {
-            let pageId = parseInt(id, 10)
-            const data = await getData(url)
-            if((data.length <= parseInt(id, 10)) || id === '0'){
-                pageId = 1;
+        const getProduct = () => {
+            if(products){
+                let pageId = parseInt(id, 10)
+                if((products.length <= parseInt(id, 10)) || id === '0'){
+                    pageId = 1;
+                }
+                const index = products.findIndex(item => item.id === pageId)
+                setProduct(products[index])
             }
-            const index = data.findIndex(item => item.id === pageId)
-            setProduct(data[index])
         }
-        fetchProduct(URL);
-    },[])
+        getProduct();
+    },[products])
 
     return(
         <article className="product-page">

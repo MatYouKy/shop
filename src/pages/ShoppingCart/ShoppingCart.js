@@ -26,7 +26,7 @@ export const ShoppingCart = () => {
                             <li key={item.id} className='list'>
 
                                 <figure className='photo'>
-                                    <img src={`${process.env.PUBLIC_URL  }../../img/${item.img}`} alt={item.name} className='photo__img' />
+                                    <img src={`img/${item.img}`} alt={item.name} className='photo__img' />
                                     <figcaption className='photo__caption'>{item.name} </figcaption>
                                 </figure>
 

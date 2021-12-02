@@ -9,7 +9,7 @@ import { Order } from '../components/Order/Order';
 
 export const RouteComponents = [
     <Route key='/' path='/*' element={<Home />}/>,
-    <Route key='/products' path='/products' element={<ProductsList />} />,
+    <Route key='/products/*' path='/products/*' element={<ProductsList />} />,
     <Route key='/products/:id' path='/products/:id' element={<ProductPage />}/>,
     <Route key='/shopping-cart' path='/shopping-cart' element={<ShoppingCart />}/>,
     <Route key='/login/:action' path='/login/:action' element={<FormLayaut />}/>,

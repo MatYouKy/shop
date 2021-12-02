@@ -16,7 +16,7 @@ export const ProductFocus = ({
         return (
         <section className='product-focus'>
             <div className='focus-main'>
-                <img className='focus-main__img' src={`${process.env.PUBLIC_URL  }../../img/${img}`} alt={name} />
+                <img className='focus-main__img' src={`../img/${img}`} alt={name} />
                 <div className='focus-main__interaction'>
                     <h5 className='focus-main__price'>{price}$</h5>
                     <button

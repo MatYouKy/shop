@@ -4,7 +4,7 @@ import { Header } from './components/Header/Header';
 import './App.scss';
 
 export const App = () => (
-  <Router>    
+  <Router basename={process.env.PUBLIC_URL}>    
     <Header />
     <Routes>
       {RouteComponents}
