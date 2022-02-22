@@ -14,7 +14,7 @@
 
 # Patterns
 
-- SCSS global files
+- SCSS module files
 - Router Switch
 - Render props
 
