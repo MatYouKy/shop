@@ -1,24 +1,27 @@
 {
   "files": {
-    "main.css": "/shop/static/css/main.dc1f3831.chunk.css",
-    "main.js": "/shop/static/js/main.df908752.chunk.js",
-    "main.js.map": "/shop/static/js/main.df908752.chunk.js.map",
+    "main.css": "/shop/static/css/main.53011f8e.chunk.css",
+    "main.js": "/shop/static/js/main.9e8f23dc.chunk.js",
+    "main.js.map": "/shop/static/js/main.9e8f23dc.chunk.js.map",
     "runtime-main.js": "/shop/static/js/runtime-main.abd8e36e.js",
     "runtime-main.js.map": "/shop/static/js/runtime-main.abd8e36e.js.map",
-    "static/js/2.8133e47f.chunk.js": "/shop/static/js/2.8133e47f.chunk.js",
-    "static/js/2.8133e47f.chunk.js.map": "/shop/static/js/2.8133e47f.chunk.js.map",
+    "static/css/2.9c7009c0.chunk.css": "/shop/static/css/2.9c7009c0.chunk.css",
+    "static/js/2.49a55fb8.chunk.js": "/shop/static/js/2.49a55fb8.chunk.js",
+    "static/js/2.49a55fb8.chunk.js.map": "/shop/static/js/2.49a55fb8.chunk.js.map",
     "index.html": "/shop/index.html",
-    "static/css/main.dc1f3831.chunk.css.map": "/shop/static/css/main.dc1f3831.chunk.css.map",
-    "static/js/2.8133e47f.chunk.js.LICENSE.txt": "/shop/static/js/2.8133e47f.chunk.js.LICENSE.txt",
-    "static/media/ShoppingCart.scss": "/shop/static/media/background-1.275de19f.jpg",
-    "static/media/ProductsList.scss": "/shop/static/media/background-2.93a88a8c.jpg",
-    "static/media/Home.scss": "/shop/static/media/background-3.61abafc2.jpg",
-    "static/media/FormLayaut.scss": "/shop/static/media/background-4.c191d2f8.jpg"
+    "static/css/2.9c7009c0.chunk.css.map": "/shop/static/css/2.9c7009c0.chunk.css.map",
+    "static/css/main.53011f8e.chunk.css.map": "/shop/static/css/main.53011f8e.chunk.css.map",
+    "static/js/2.49a55fb8.chunk.js.LICENSE.txt": "/shop/static/js/2.49a55fb8.chunk.js.LICENSE.txt",
+    "static/media/ShoppingCart.module.scss": "/shop/static/media/background-1.275de19f.jpg",
+    "static/media/Products.module.scss": "/shop/static/media/background-2.93a88a8c.jpg",
+    "static/media/Home.module.scss": "/shop/static/media/background-3.61abafc2.jpg",
+    "static/media/FormLayaut.module.scss": "/shop/static/media/background-4.c191d2f8.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.abd8e36e.js",
-    "static/js/2.8133e47f.chunk.js",
-    "static/css/main.dc1f3831.chunk.css",
-    "static/js/main.df908752.chunk.js"
+    "static/css/2.9c7009c0.chunk.css",
+    "static/js/2.49a55fb8.chunk.js",
+    "static/css/main.53011f8e.chunk.css",
+    "static/js/main.9e8f23dc.chunk.js"
   ]
 }
