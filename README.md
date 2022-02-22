@@ -1,5 +1,7 @@
 # Test Shop [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#Contributors)
 
+   App is now accessible at: https://matyouky.github.io/shop
+
 # Project Status
     WIP
 
