@@ -1,0 +1,97 @@
+@import '../../Styles/colors';
+@import '../../Styles/sizes';
+@import '../../Styles/mixins';
+@import '../../Styles/breakpoints';
+
+.button {
+  position: relative;
+  border: none;
+  background: none;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  z-index: 1001;
+  cursor: pointer;
+
+  .badge {
+    position: relative;
+    opacity: 1;
+    margin-right: 80px;
+  }
+
+  &:hover {
+    span {
+      background-color: $desktopMenuHover;
+    }
+  }
+}
+
+.burger {
+  @include burgerElement(0);
+  background-color: black;
+  opacity: 1;
+  transition: transform 0.4s ease-out, opacity 0.5s ease-out, background-color 0.4s ease-out;
+}
+
+.before {
+  @include burgerElement(-10px);
+  background-color: black;
+  transition: transform 0.4s ease-out, background-color 0.4s ease-out;
+}
+
+.after {
+  @include burgerElement(10px);
+  background-color: black;
+  transition: transform 0.4s ease-out, background-color 0.4s ease-out;
+}
+
+.open {
+  .burger {
+    background-color: whitesmoke;
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  .before {
+    background-color: whitesmoke;
+    transform: rotate(45deg) translate(-100px, 100px);
+  }
+  .after {
+    background-color: whitesmoke;
+    transform: rotate(-45deg) translate(-100px, -100px);
+  }
+
+  .badge {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: transform 0.4s ease-out,
+    opacity 0.4s;
+  }
+}
+
+@media (min-width: $ExtraSmall) {
+  .open {
+    .burger {
+      background-color: whitesmoke;
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    .before {
+      background-color: whitesmoke;
+      transform: rotate(45deg) translate(-155px, 155px);
+    }
+    .after {
+      background-color: whitesmoke;
+      transform: rotate(-45deg) translate(-155px, -155px);
+    }
+  }
+}
+
+@media (min-width: $Large) {
+  .button {
+    display: none;
+  }
+}

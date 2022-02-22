@@ -1,0 +1,61 @@
+@import '../../Styles/colors';
+@import '../../Styles/sizes';
+@import '../../Styles/mixins';
+
+.home {
+  @include backgroundImage('../img/background-3.jpg');
+  
+  .wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+  }
+  
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    color: $titleColor;
+    text-shadow: 1px 1px rgba(255, 255, 255, .1);
+    border-top: 2px solid $borderShadow;
+    border-bottom: 2px solid $borderShadow;
+    padding: 30px 0;
+    z-index: 4;
+    
+    &-heading {
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    
+    .button {
+      @include styleBtn;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+  }
+
+  .blur {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 100%;
+    filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.517);
+    z-index: 3;
+  }
+
+  .widget {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+  }
+}

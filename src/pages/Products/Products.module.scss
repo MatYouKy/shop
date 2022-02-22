@@ -1,0 +1,43 @@
+@import '../../Styles/sizes';
+@import '../../Styles/mixins';
+@import '../../Styles/breakpoints';
+
+@keyframes products-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.products {
+  @include backgroundImage('../img/background-2.jpg');
+
+  .container {
+    position: relative;
+    top: 3rem;
+    background: transparent;
+    z-index: 2;
+
+    .scroll {
+      max-width: 60rem;
+      animation: products-appear 1s ease-out forwards;
+      width: 90%;
+      margin: 0 auto 3rem;
+    }
+
+    .info {
+      text-align: center;
+      padding: 2rem;
+    }
+  }
+}
+
+@media (min-width: $Large) {
+  .products .container {
+    top: 4rem;
+  }
+}

@@ -1,40 +1,49 @@
 {
-    "env": {
-      "browser": true,
-      "es2021": true
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["airbnb", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": ["airbnb", "prettier"],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "ecmaVersion": 12,
-      "sourceType": "module"
-    },
-    "plugins": ["react", "prettier", "unused-imports"],
-    "rules": {
-      "react/no-unescaped-entities": "warn",
-      "react/jsx-props-no-spreading": "off",
-      "react/button-has-typ": "off",
-      "jsx-a11y/label-has-for":"off",
-      "import/prefer-default-export": "off",
-      "unused-imports/no-unused-imports": "warn",
-      "no-use-before-define": "off",
-      "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".js"] }],
-      "no-shadow": "off",
-      "react/react-in-jsx-scope": "off",
-      "jsx-a11y/control-has-associated-label": "error",
-      "import/no-extraneous-dependencies": [
-        "error",
-        { "devDependencies": true, "optionalDependencies": false, "peerDependencies": false }
-      ]
-    },
-    "settings": {
-      "import/resolver": {
-        "node": {
-          "extensions": [".js", ".jsx"]
-        }
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier", "unused-imports"],
+  "rules": {
+    "react/no-unescaped-entities": "warn",
+    "react/button-has-type": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": ["off", { "extensions": [".ts", ".js"] }],
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/control-has-associated-label": "error",
+    "unused-imports/no-unused-imports": "warn",
+    "no-underscore-dangle": "off",
+    "no-use-before-define": "off",
+    "no-shadow": "off",
+    "lines-between-class-members": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": [
+      "warn",
+      {
+        ".tsx": "always",
+        ".jsx": "always"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": true, "optionalDependencies": false, "peerDependencies": false }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".tsx", ".ts"]
       }
     }
+  }
 }

@@ -1,0 +1,73 @@
+@import '../../Styles/sizes';
+@import '../../Styles/colors';
+@import '../../Styles/breakpoints';
+
+.header {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  background-color: $white;
+  border-bottom: 1px solid $desktopMenuHover;
+
+  .container {
+    max-width: 1400px;
+    width: 100%;
+    // margin: auto;
+
+    .logo {
+      padding: 0 15px;
+      margin-right: auto;
+
+      a {
+        font-size: 25px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $desktopMenuHover;
+        font-weight: 600;
+      }
+    }
+
+    .main {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .overlay {
+      position: fixed;
+      z-index: 999;
+      background-color: $backgroundShadow;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+@media (min-width: $Small) {
+  .header .container .logo a {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: $Large) {
+  .header {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+
+    .container {
+      padding: 5px;
+
+      .main {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}

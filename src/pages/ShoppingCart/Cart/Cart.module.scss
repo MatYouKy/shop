@@ -1,0 +1,70 @@
+@import '../../../Styles/colors';
+@import '../../../Styles/breakpoints';
+
+.items {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  max-height: 19rem;
+  border-bottom: 1px solid #ccc;
+  overflow: auto;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+
+  .total {
+    font-weight: bold;
+    margin-left: 1rem;
+    font-size: 1rem;
+  }
+}
+
+.actions {
+  width: auto;
+  padding: 0 1rem;
+
+  .button {
+    margin: 0.25rem auto;
+  }
+}
+
+@media (min-width: $Small) {
+  .items {
+    max-height: 40rem;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 1rem;
+    .button {
+      margin: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: $Large) and (orientation: landscape) {
+  .items {
+    max-height: 9rem;
+    padding-bottom: 0;
+  }
+  .summary {
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin: 0 1rem;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 1rem;
+    .button {
+      margin: 0.25rem;
+    }
+  }
+}

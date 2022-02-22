@@ -1,0 +1,94 @@
+@import '../../Styles/colors';
+@import '../../Styles/sizes';
+@import '../../Styles/mixins';
+@import '../../Styles/breakpoints';
+
+.form-inner {
+  position: relative;
+  display: block;
+  width: 90%;
+  max-width: 31.25rem;
+  border-radius: $borderRadius;
+  border: 1px solid $borderColor;
+  background-color: $mainWhite;
+  padding: 1.25rem;
+  text-transform: capitalize;
+  margin: 0.3rem auto;
+
+  
+  .header-text {
+    color: $desktopMenuHover;
+    margin-bottom: 1.875rem;
+  }
+  
+  .action {
+    display: block;
+    margin: 1rem 0.1rem;
+    
+    .info {
+      font-size: 0.7rem;
+      margin-top: 0.5rem;
+    }
+
+    
+    .link {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+      color: $buttonAdd;
+      transition: color 0.2s ease-in;
+      
+      &:hover {
+        color: $buttonAddHover;
+      }
+    }
+  }
+
+}
+
+.input-error {
+  height: 0.75rem;
+  font-size: 0.75rem;
+  padding: 0.3125rem;
+  color: tomato;
+}
+
+.error {
+  color: tomato;
+}
+
+@media (min-width: $Large) {
+  .form-inner {
+    margin: 0.3125rem auto;
+  }
+}
+
+@media (orientation: landscape) and (max-width: $Large) {
+  .form-inner {
+    width: 80%;
+    padding: 1rem;
+
+    
+    .header-text {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    
+    .action {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0.6rem 0.3125rem;
+
+      .info {
+        margin-top: 0;
+      }
+    }
+  }
+  .error {
+    margin-top: 0.3125rem;
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,46 @@
+@import '../../Styles/colors';
+@import '../../Styles/breakpoints';
+
+.input {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem auto;
+
+  label {
+    color: $inputColor;
+    margin: 0 0 0.5rem 0.5rem;
+  }
+
+  input {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 0.1rem solid $inputBorder;
+    padding: 0.3rem 0.5rem;
+  }
+
+  textarea {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    overflow: auto;
+    resize: vertical;
+    border-radius: 0.5rem;
+    border: 0.1rem solid $inputBorder;
+    padding: 0.3rem 0.5rem;
+    word-wrap: break-word;
+  }
+}
+
+.error-text {
+  margin-top: 5px;
+  font-size: 12px;
+  color: red;
+}
+
+@media (orientation: landscape) and (max-width: $Large) {
+  .input {
+    label {
+      font-size: 0.8rem;
+    }
+  }
+}

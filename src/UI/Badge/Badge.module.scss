@@ -1,0 +1,17 @@
+@import '../../Styles/colors';
+@import '../../Styles/breakpoints';
+
+.badge {
+  background-color: $buttonAdd;
+  color: black;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1.5rem;
+  margin-left: auto;
+  font-weight: bold;
+}
+
+@media (min-width: $Large) {
+  .badge {
+    margin-left: 0.5rem;
+  }
+}

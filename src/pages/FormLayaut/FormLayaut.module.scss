@@ -1,0 +1,30 @@
+@import '../../Styles/mixins';
+@import '../../Styles/sizes';
+@import '../../Styles/breakpoints';
+
+.login {
+  @include backgroundImage('../img/background-4.jpg');
+  overflow-y: auto;
+
+  .form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+  span {
+    text-transform: capitalize;
+  }
+}
+
+@media (orientation: landscape) and (max-width: $Large){
+  .login {
+    .form {
+      top: 3.125rem;
+      height: auto;
+    }
+  }
+}

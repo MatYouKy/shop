@@ -1,0 +1,74 @@
+@import '../../../Styles/colors';
+@import '../../../Styles/breakpoints';
+
+.item {
+  position: relative;
+  list-style: none;
+  margin-left: 0;
+  overflow: hidden;
+
+  &:first-child {
+    border-top: 0.1rem solid #333;
+  }
+
+  .nav-link {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: $black;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    color: whitesmoke;
+    border-bottom: 0.1rem solid #333;
+    cursor: pointer;
+
+    &:hover {
+      color: $desktopMenuHover;
+    }
+
+    &:global.active {
+      color: $desktopMenuHover;
+    }
+
+    .icon {
+      width: 1.35rem;
+      height: 1.35rem;
+      margin-right: 0.5rem;
+    }
+
+    .badge {
+      background-color: $buttonAdd;
+      color: black;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1.5rem;
+      margin-left: auto;
+      font-weight: bold;
+    }
+  }
+}
+@media (min-width: $Large) {
+  .item {
+    display: inline-block;
+    margin-left: 0.625rem;
+    padding: 0.625rem;
+    position: relative;
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  .item .nav-link {
+    padding: 0;
+    color: black;
+    border: none;
+
+    .badge {
+      margin-left: 0.5rem;
+    }
+  }
+}

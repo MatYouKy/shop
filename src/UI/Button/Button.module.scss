@@ -1,0 +1,34 @@
+@import '../../Styles/colors';
+@import '../../Styles/sizes';
+@import '../../Styles/breakpoints';
+
+.button {
+    background-color: $buttonAdd;
+    border-radius: $borderRadius;
+    border: none;
+    transition: background-color .15s ease-in;
+    text-transform: capitalize;
+    width: 100%;
+    padding: 0.4rem 0.5rem;
+    // margin: 0.3rem;
+    min-width: 5rem;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: $buttonAddHover;
+    }
+    
+    &:active {
+        background-color: $buttonAddHover;
+    }
+    
+    @media (min-width: $Small) {
+        width:auto;
+    }
+    @media (orientation: landscape) and (min-width: 640px) and (max-width: $Large) {
+        width:auto;
+    }
+    @media (orientation: landscape) and (max-width: $Large) {
+        width:auto;
+    }
+}

@@ -1,0 +1,119 @@
+@import '../../../Styles/colors.scss';
+@import '../../../Styles/breakpoints.scss';
+
+.product {
+  position: relative;
+  display: grid;
+  list-style: none;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ccc;
+
+  &-image {
+    margin: 0 auto 1rem;
+    width: 100%;
+    max-width: 80%;
+    height: auto;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .details {
+    text-align: center;
+
+    .title {
+      text-align: left;
+      margin: 0 0 0.75rem 0;
+      cursor: pointer;
+    }
+
+    .description {
+      line-height: 1rem;
+      text-align: left;
+      margin-bottom: 0.3125rem;
+    }
+
+    .arrow {
+      height: 1.3125rem;
+      padding: 0 0.5rem;
+      fill: $buttonAddHover;
+      cursor: pointer;
+      transform: rotate(0deg);
+      transition: transform 0.3s cubic-bezier(0.69, 0.01, 0.12, 0.9);
+
+      &-rotate {
+        transform: rotate(540deg);
+      }
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      .input {
+        margin-right: 0;
+      }
+
+      .price {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        color: #ad5502;
+      }
+
+      .button {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+    }
+  }
+}
+
+@media (min-width: $Small) {
+  .product {
+    grid-template-columns: 10rem auto;
+    gap: 0 1rem;
+
+    &-image {
+      margin-bottom: 0;
+      max-width: 10rem;
+      height: 10rem;
+    }
+    .details {
+      font-size: 0.8rem;
+      padding-left: 1rem;
+      border-left: 1px solid #ccc;
+
+      .title {
+        font-size: 1rem;
+      }
+
+      .arrow {
+        height: 1rem;
+        padding: 0 0.5rem;
+      }
+
+      .form {
+        .button {
+          grid-column-start: 2;
+          grid-column-end: 3;
+          max-width: 3rem;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $Small) and (orientation: landscape) {
+  .product {
+    grid-template-columns: 10rem auto;
+    gap: 0 1rem;
+
+    &-image {
+      margin-bottom: 0;
+      max-width: 10rem;
+      height: 10rem;
+    }
+  }
+}

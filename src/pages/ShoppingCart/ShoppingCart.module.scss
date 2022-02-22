@@ -1,0 +1,35 @@
+@import '../../Styles/colors';
+@import '../../Styles/mixins';
+@import '../../Styles/sizes';
+@import '../../Styles/breakpoints';
+
+.cart {
+  @include backgroundImage('../img/background-1.jpg');
+
+  .cart-wrapper {
+    position: relative;
+    top: 3rem;
+    width: 90%;
+    max-width: 60rem;
+    margin: 0 auto;
+    z-index: 2;
+
+    .info {
+      text-align: center;
+      padding: 2rem;
+    }
+  }
+}
+
+@media (min-width: $Large) {
+  .cart {
+    .cart-wrapper {
+      top: 4rem;
+
+      .info {
+        text-align: center;
+        padding: 2rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@import '../../Styles/colors';
+@import '../../Styles/breakpoints';
+
+.nav {
+  position: fixed;
+  right: -12.5rem;
+  visibility: hidden;
+  width: 12.5rem;
+  height: 100%;
+  z-index: 1000;
+  top: 0;
+  overflow-y: auto;
+  background-color: #222222;
+  padding: 1rem 0;
+  padding: 3.125rem 0 0 0;
+
+  .menu {
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+}
+
+.open {
+  visibility: visible;
+  right: 0;
+  transition: right 0.5s ease;
+}
+
+@media (min-width: $ExtraSmall) {
+  .nav {
+    right: -17.5rem;
+    width: 17.5rem;
+  }
+
+  .open {
+    visibility: visible;
+    right: 0;
+  }
+}
+
+@media (min-width: $Large) {
+  .nav {
+    position: relative;
+    height: 100%;
+    width: auto;
+    right: 0;
+    visibility: visible;
+    background: none;
+    padding: 0;
+    
+    .menu {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 3.125rem;
+    }
+  }
+}
