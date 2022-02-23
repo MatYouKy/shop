@@ -2,7 +2,7 @@ import { FC, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Input } from '../../UI/Input/Input';
 import { useInputValidate } from '../../hooks/useInputValidate';
-import { useFirebaseUser } from '../../hooks/useFirebaseUser';
+import { useFirebaseAuth } from '../../hooks/useFirebaseAuth';
 import Button from '../../UI/Button/Button';
 import { LoaderSpinner } from '../../UI/LoaderSpinner/LoaderSpinner';
 
@@ -19,7 +19,12 @@ const regexp = new RegExp(
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 );
 
-const matchRegExp = (value: string): RegExpMatchArray => value.match(regexp);
+const matchRegExp = (value: string): boolean => {
+  if (value.match(regexp)){
+    return true;
+  }
+  return false;
+}
 const lengthValid = (value: string): boolean => value.trim().length >= 8;
 
 export const SigninForm: FC<SigninFormTypes> = ({ heading, redirectText, redirectLink }) => {
@@ -27,7 +32,7 @@ export const SigninForm: FC<SigninFormTypes> = ({ heading, redirectText, redirec
 
   const url = process.env.REACT_APP_FIREBASE_SIGN_IN;
 
-  const { sendRequest, isLoading, error } = useFirebaseUser();
+  const { sendRequest, isLoading, error } = useFirebaseAuth();
 
   const {
     value: emailValue,

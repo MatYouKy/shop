@@ -1,0 +1,15 @@
+@import '../../Styles/colors';
+
+.scroll {
+  animation: products-appear 1s ease-out forwards;
+  margin-bottom: 0 auto 2rem;
+
+  &-end {
+    text-align: center;
+    margin: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.16rem;
+    color: $buttonAddHover;
+  }
+}

@@ -2,37 +2,52 @@
 @import './sizes';
 
 @mixin styleBtn {
-    padding: 5px 15px;
-    background-color: $buttonAdd;
-    border-radius: $borderRadius;
-    border: none;
-    transition: background-color .15s ease-in;
-    text-transform: capitalize;
-    cursor: pointer;
-    
-    &:hover {
-        background-color: $buttonAddHover;
-    }
+  padding: 5px 15px;
+  background-color: $buttonAdd;
+  border-radius: $borderRadius;
+  border: none;
+  transition: background-color 0.15s ease-in;
+  text-transform: capitalize;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $buttonAddHover;
+  }
 }
 
-@mixin burgerElement ($val) {
-    position: absolute;
-    width: 30px;
-    height: 3px;
-    background: black;
-    border-radius: $borderRadius;
-    transition: all 0.2s ease-in-out;
-    transform: translateY($val);
+@mixin burgerElement($val) {
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: black;
+  border-radius: $borderRadius;
+  transition: all 0.2s ease-in-out;
+  transform: translateY($val);
 }
 
 @mixin backgroundImage($url) {
-    position: static;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-image: url($url);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 1;
+  padding: 4rem 0 3rem;
+
+  &::after {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
+    height: 100%;
     width: 100%;
-    height: 100vh;
-    background-image: url($url);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: #ffffffc3;
+    z-index: 0;
+    overflow-y: auto;
+  }
 }

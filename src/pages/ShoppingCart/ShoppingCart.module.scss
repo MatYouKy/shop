@@ -5,10 +5,10 @@
 
 .cart {
   @include backgroundImage('../img/background-1.jpg');
+  padding: 4rem 0 1rem;
 
   .cart-wrapper {
     position: relative;
-    top: 3rem;
     width: 90%;
     max-width: 60rem;
     margin: 0 auto;
@@ -23,9 +23,10 @@
 
 @media (min-width: $Large) {
   .cart {
-    .cart-wrapper {
-      top: 4rem;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
 
+    .cart-wrapper {
       .info {
         text-align: center;
         padding: 2rem;

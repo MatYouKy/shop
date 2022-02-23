@@ -6,7 +6,7 @@ import { LoaderSpinner } from '../../UI/LoaderSpinner/LoaderSpinner';
 
 import classes from '../SigninForm/SigninForm.module.scss';
 import Button from '../../UI/Button/Button';
-import { useFirebaseUser } from '../../hooks/useFirebaseUser';
+import { useFirebaseAuth } from '../../hooks/useFirebaseAuth';
 
 const regexp = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 
@@ -22,7 +22,7 @@ export const SignupForm: FC = () => {
 
   const url = process.env.REACT_APP_FIREBASE_SIGN_UP;
 
-  const { sendRequest, isLoading, error} = useFirebaseUser();
+  const { sendRequest, isLoading, error} = useFirebaseAuth();
 
   const {
     value: userNameValue,

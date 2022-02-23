@@ -5,6 +5,7 @@
 
 .admin {
   @include backgroundImage('../img/background-4.jpg');
+  padding: 4rem 0 1rem;
 
   .container {
     position: relative;
@@ -68,6 +69,7 @@
 
 @media (orientation: landscape) and (max-width: $Large) {
   .admin {
+    padding: 5rem 0 3rem;
     .container {
       top: 3.125rem;
       height: auto;
@@ -77,7 +79,7 @@
           display: flex;
           justify-content: flex-end;
           padding: 0 1rem;
-          
+
           .button {
             margin: 0.25rem;
           }

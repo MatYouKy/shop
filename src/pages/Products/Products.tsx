@@ -5,21 +5,26 @@ import ProductItem from './ProductItem/ProductItem';
 import Product from '../../interfaces/ProductInterfaces';
 import Scroll from '../../UI/Scroll/Scroll';
 import classes from './Products.module.scss';
-import Shadow from '../../UI/Shadow/Shadow';
 import Card from '../../UI/Card/Card';
 
 export default function Products() {
-  const { products, error } = useGetProducts('products.json');
+  const { products, error, fetchProductHandler } = useGetProducts();
 
   const initialValue = 7;
   const newValue = 4;
 
-  const [index, setIndex] = useState(initialValue);
+  const [index, setIndex] = useState(products.length);
   const [hasMore, setHasMore] = useState(true);
   const [productList, setProductList] = useState<Product[]>([]);
 
+  const initialFunction = () => {
+    setProductList(products.slice(0, initialValue));
+    setIndex(initialValue);
+  };
+
   const nextProducts = (value: number) => {
     setProductList(products.slice(0, value));
+    setIndex(index + newValue);
   };
 
   const nextFunction = () => {
@@ -28,8 +33,7 @@ export default function Products() {
       return;
     }
     setTimeout(() => {
-      nextProducts(index + newValue);
-      setIndex(index + newValue);
+      nextProducts(initialValue + newValue);
     }, 1000);
   };
 
@@ -45,24 +49,22 @@ export default function Products() {
   ));
 
   useEffect(() => {
-    if (products) setProductList(products.slice(0, initialValue));
+    initialFunction();
   }, [products]);
+
+  useEffect(() => {
+    fetchProductHandler('/products.json');
+  }, []);
 
   return (
     <article className={classes.products}>
-      <Shadow>
-        <section className={classes.container}>
-          {products.length > 0 && (
-            <div className={classes.scroll}>
-              <Scroll index={index} hasMore={hasMore} productsRender={productsList} next={nextFunction} />
-            </div>
-          )}
-          <Card>
-            {!products && <p className={classes.info}>No found products.</p>}
-            {error && <p className={classes.info}>{error}</p>}
-          </Card>
-        </section>
-      </Shadow>
+      <Card>
+        {products.length > 0 && (
+          <Scroll index={index} hasMore={hasMore} productsRender={productsList} next={nextFunction} />
+        )}
+        {!products && <p className={classes.info}>No found products.</p>}
+        {error && <p className={classes.info}>{error}</p>}
+      </Card>
     </article>
   );
 }

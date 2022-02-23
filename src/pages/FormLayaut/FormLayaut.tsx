@@ -2,7 +2,6 @@ import { useParams } from 'react-router';
 import { SigninForm } from '../../components/SigninForm/SigninForm';
 import { SignupForm } from '../../components/SignupForm/SignupForm';
 import classes from './FormLayaut.module.scss';
-import Shadow from '../../UI/Shadow/Shadow';
 
 export const FormLayaut = () => {
   const { action } = useParams();
@@ -16,9 +15,7 @@ export const FormLayaut = () => {
 
   return (
     <article id='login' className={classes.login}>
-      <Shadow>
-        <section className={classes.form}>{renderAction}</section>
-      </Shadow>
+      <section className={classes.form}>{renderAction}</section>
     </article>
   );
 };

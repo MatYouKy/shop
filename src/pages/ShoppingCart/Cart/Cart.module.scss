@@ -35,7 +35,7 @@
 
 @media (min-width: $Small) {
   .items {
-    max-height: 40rem;
+    max-height: 30rem;
   }
 
   .actions {
@@ -48,7 +48,13 @@
   }
 }
 
-@media (max-width: $Large) and (orientation: landscape) {
+@media (min-width: $Large) and (max-height: $Large) {
+  .items {
+    max-height: 30rem;
+  }
+}
+
+@media (max-width: $Large) and (max-height: $Small) and (orientation: landscape) {
   .items {
     max-height: 9rem;
     padding-bottom: 0;
@@ -66,5 +72,12 @@
     .button {
       margin: 0.25rem;
     }
+  }
+}
+
+@media (max-width: $Large) and (min-height: $Large) and (orientation: landscape) {
+  .items {
+    max-height: 6rem;
+    padding-bottom: 0;
   }
 }

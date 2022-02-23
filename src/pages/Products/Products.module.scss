@@ -17,17 +17,6 @@
   @include backgroundImage('../img/background-2.jpg');
 
   .container {
-    position: relative;
-    top: 3rem;
-    background: transparent;
-    z-index: 2;
-
-    .scroll {
-      max-width: 60rem;
-      animation: products-appear 1s ease-out forwards;
-      width: 90%;
-      margin: 0 auto 3rem;
-    }
 
     .info {
       text-align: center;
@@ -37,7 +26,7 @@
 }
 
 @media (min-width: $Large) {
-  .products .container {
-    top: 4rem;
+  .products {
+    padding-top: 5rem;
   }
 }

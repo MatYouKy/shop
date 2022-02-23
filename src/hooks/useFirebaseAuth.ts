@@ -1,7 +1,7 @@
 import { useState, useCallback, useContext } from 'react';
 import AuthContext from '../store/AuthContext';
 
-export const useFirebaseUser = () => {
+export const useFirebaseAuth = () => {
   const { login } = useContext(AuthContext);
 
   const [isLoading, setIsLoading] = useState(false);
