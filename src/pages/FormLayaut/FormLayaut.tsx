@@ -3,7 +3,7 @@ import { SigninForm } from '../../components/SigninForm/SigninForm';
 import { SignupForm } from '../../components/SignupForm/SignupForm';
 import classes from './FormLayaut.module.scss';
 
-export const FormLayaut = () => {
+const FormLayaut = () => {
   const { action } = useParams();
 
   const renderAction =
@@ -19,3 +19,5 @@ export const FormLayaut = () => {
     </article>
   );
 };
+
+export default FormLayaut;

@@ -1,9 +1,11 @@
 
-const url = `${process.env.REACT_APP_FIREBASE_DATABASE_URL}/users.json`;
-
 export const createUser = () => {
-    // eslint-disable-next-line no-console
-    console.log(url)
+    // const fetchUser = async () => {
+    //     const response = await fetch(url, {
+    //         method: 'POST',
+            
+    //     })
+    // }
 }
 
 export const getUser = () => {
