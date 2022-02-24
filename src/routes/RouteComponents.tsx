@@ -1,13 +1,15 @@
+import { lazy } from 'react';
 import { Route } from 'react-router';
-import Home from '../pages/Home/Home';
-import { ShoppingCart } from '../pages/ShoppingCart/ShoppingCart';
-import { ProductPage } from '../pages/ProductPage/ProductPage';
-import { FormLayaut } from '../pages/FormLayaut/FormLayaut';
-import Products from '../pages/Products/Products';
-import AdminPanel from '../pages/AdminPanel/AdminPanel';
 import { ProtectedRoute } from './ProtectedRoute';
 import { DisabledRoute } from './DisabledRoute';
 
+import Home from '../pages/Home/Home';
+
+const Products = lazy(() => import('../pages/Products/Products'));
+const AdminPanel = lazy(() => import('../pages/AdminPanel/AdminPanel')); 
+const ShoppingCart = lazy(() => import('../pages/ShoppingCart/ShoppingCart')); 
+const ProductPage = lazy(() => import('../pages/ProductPage/ProductPage')); 
+const FormLayaut = lazy(() => import('../pages/FormLayaut/FormLayaut')); 
 
 const RouteComponents = [
   <Route key='/' path='/*' element={<Home />} />,

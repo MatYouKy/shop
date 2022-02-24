@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
 import { BrowserRouter as Router, Routes } from 'react-router-dom';
 import { ProductProvider } from './store/ProductContext';
 import { MenuProvider } from './store/MenuContext';
 import { Header } from './components/Header/Header';
+import { LoadingSpinner } from './UI/LoadingSpinner/LoadingSpinner';
 
 import RouteComponents from './routes/RouteComponents';
 
@@ -14,7 +16,15 @@ export const App = () => (
         <Header />
       </MenuProvider>
       <main className={classes.main}>
-        <Routes>{RouteComponents}</Routes>
+        <Suspense
+          fallback={
+            <div className={classes.center}>
+              <LoadingSpinner />
+            </div>
+          }
+        >
+          <Routes>{RouteComponents}</Routes>
+        </Suspense>
       </main>
     </ProductProvider>
   </Router>

@@ -4,7 +4,7 @@ import Button from '../../UI/Button/Button';
 import { Input, TextArea } from '../../UI/Input/Input';
 import { usePostProduct } from '../../actions/postProduct';
 import classes from './AdminPanel.module.scss';
-import { LoaderSpinner } from '../../UI/LoaderSpinner/LoaderSpinner';
+import { LoadingSpinner } from '../../UI/LoadingSpinner/LoadingSpinner';
 
 const validLength = (value: string): boolean => value.trim().length >= 3;
 const noEqual = (value: number): boolean => value !== 0;
@@ -120,7 +120,7 @@ const AdminPanel: FC = () => {
             />
             <input type='file' onChange={fileHandler} ref={productFileRef} />
             <div className={classes.action}>
-              {isLoading && <LoaderSpinner />}
+              {isLoading && <LoadingSpinner />}
               {!isLoading && (
                 <>
                   <Button extraClassName={classes.button} type='button' name='cancel' onClick={cancelHandler} />

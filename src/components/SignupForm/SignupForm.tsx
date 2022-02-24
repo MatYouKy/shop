@@ -2,7 +2,7 @@ import { FormEvent, FC } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Input } from '../../UI/Input/Input';
 import { useInputValidate } from '../../hooks/useInputValidate';
-import { LoaderSpinner } from '../../UI/LoaderSpinner/LoaderSpinner';
+import { LoadingSpinner } from '../../UI/LoadingSpinner/LoadingSpinner';
 
 import classes from '../SigninForm/SigninForm.module.scss';
 import Button from '../../UI/Button/Button';
@@ -140,7 +140,7 @@ export const SignupForm: FC = () => {
       />
       <div className={classes.action}>
         {!isLoading && <Button disabled={!formIsValid} type='submit' name='sign in' />}
-        {isLoading && <LoaderSpinner />}
+        {isLoading && <LoadingSpinner />}
 
         <p className={classes.info}>
           Do you have an account?{' '}

@@ -4,7 +4,7 @@ import Card from '../../UI/Card/Card';
 import Cart from './Cart/Cart';
 import classes from './ShoppingCart.module.scss';
 
-export const ShoppingCart = () => {
+const ShoppingCart = () => {
   const { items, totalAmount, addProduct, removeProduct, resetProduct } = useContext(ProductContext);
 
   return (
@@ -27,3 +27,5 @@ export const ShoppingCart = () => {
     </article>
   );
 };
+
+export default ShoppingCart;

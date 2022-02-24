@@ -4,7 +4,7 @@ import { Input } from '../../UI/Input/Input';
 import { useInputValidate } from '../../hooks/useInputValidate';
 import { useFirebaseAuth } from '../../hooks/useFirebaseAuth';
 import Button from '../../UI/Button/Button';
-import { LoaderSpinner } from '../../UI/LoaderSpinner/LoaderSpinner';
+import { LoadingSpinner } from '../../UI/LoadingSpinner/LoadingSpinner';
 
 import classes from './SigninForm.module.scss';
 
@@ -104,7 +104,7 @@ export const SigninForm: FC<SigninFormTypes> = ({ heading, redirectText, redirec
       />
       <div className={classes.action}>
         {!isLoading && <Button type='submit' name='Login' disabled={!formIsValid} />}
-        {isLoading && <LoaderSpinner />}
+        {isLoading && <LoadingSpinner />}
         <p className={classes.info}>
           {redirectText}
           <Link to={redirectLink} className={classes.link}>
