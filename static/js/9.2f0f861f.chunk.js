@@ -1,0 +1,2 @@
+(this.webpackJsonpshop=this.webpackJsonpshop||[]).push([[9],{66:function(e,t,c){e.exports={"product-page":"ProductPage_product-page__1yuCo",container:"ProductPage_container__1Pzzp",title:"ProductPage_title__18CvH"}},69:function(e,t,c){"use strict";c.r(t);var a=c(66),n=c.n(a),r=c(1);t.default=function(){return Object(r.jsx)("article",{className:n.a["product-page"],children:Object(r.jsx)("div",{className:n.a.container,children:Object(r.jsx)("h1",{className:n.a.title,children:"Name"})})})}}}]);
+//# sourceMappingURL=9.2f0f861f.chunk.js.map
