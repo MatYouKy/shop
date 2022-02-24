@@ -1,6 +1,6 @@
 # Test Shop [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#Contributors)
 
-   App is now accessible at: https://matyouky.github.io/shop
+   App is now accessible at: https://products-shop-dd6fc.web.app/
 
 # Project Status
     WIP
